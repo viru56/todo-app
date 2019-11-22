@@ -1,0 +1,55 @@
+.task-component {
+  .ng-valid[required],
+  .ng-valid.required {
+    border-left: 5px solid #42a948; /* green */
+  }
+
+  .ng-invalid:not(form) {
+    border-left: 5px solid #a94442; /* red */
+  }
+  width: 100%;
+  .center {
+    text-align: center;
+    padding: 10px;
+  }
+  .todo-form {
+    min-height: 225px;
+    box-shadow: 1px 1px 1px 1px #ccc;
+    padding: 20px;
+    margin-bottom: 10px;
+    .btn-primary {
+      float: right;
+    }
+    textarea {
+        resize: none;
+      }
+  }
+  .info {
+    margin: 10px;
+    text-align: center;
+    .task-number {
+      border: 1px solid #cecece;
+      padding: 10px;
+      font-size: 20px;
+    }
+    .btn{
+        padding: 10px;
+    }
+  }
+  .todo-list {
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 1px 1px 1px 1px #ccc;
+    h2 {
+      margin-top: 0px;
+    }
+    .fa {
+      padding: 5px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    .fa-trash {
+      color: #ff0000;
+    }
+  }
+}

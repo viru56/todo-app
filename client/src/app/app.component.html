@@ -1,0 +1,12 @@
+<div class="app">
+
+
+<div class="toolbar" role="banner">
+  <h2>{{title}}</h2>
+  <div class="spacer"></div>
+  <div *ngIf="user">
+    <h4>{{user?.name || 'guest' | uppercase}} <i class="fa fa-power-off" aria-hidden="true" (click)="logout()"></i></h4>
+  </div>
+</div>
+</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,37 @@
+{
+  "name": "todo-server",
+  "version": "1.0.0",
+  "description": "api server for todo app",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "NODE_ENV=development  nodemon --watch '*.ts' --exec ts-node ./src/server.ts",
+    "start": "NODE_ENV=development node ./build/server.js",
+    "prod": "NODE_ENV=production npm run build && npm run start"
+  },
+  "keywords": [
+    "node",
+    "typesctipt"
+  ],
+  "author": "virender nehra",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^12.12.9",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "ejs": "^2.6.1",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.4.0",
+    "mongoose": "^5.4.10",
+    "mongoose-paginate": "^5.0.3",
+    "ts-node": "^8.3.0",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.0",
+    "@types/jsonwebtoken": "^8.3.0",
+    "nodemon": "^1.19.1",
+    "tslint": "^5.18.0",
+    "typescript": "^3.3.3"
+  }
+}

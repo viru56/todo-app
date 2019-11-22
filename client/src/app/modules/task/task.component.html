@@ -1,0 +1,85 @@
+<div class="task-component">
+  <div class="container">
+    <h1 class="center">My TODO List</h1>
+    <div class="row">
+      <div class="col-md-12 todo-form">
+        <form (ngSubmit)="onSubmit()" [formGroup]="todoForm">
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input
+              type="text"
+              class="form-control"
+              name="title"
+              formControlName="title"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea
+              type="text"
+              class="form-control"
+              formControlName="description"
+              name="description"
+              required
+              cols="6"
+              rows="4"
+            ></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" [disabled]="todoForm.invalid">{{submitBtn}}</button>
+        </form>
+      </div>
+    </div>
+    <div class="row info">
+      <div class="col-md-12" *ngIf="tasks.length > 0">
+        <div class="col-md-4">
+          <button
+            class="btn btn-primary"
+            (click)="getTask('prev')"
+            [disabled]="page===1"
+          >
+            <<
+          </button>
+        </div>
+        <div class="col-md-4">
+          <div *ngIf="!loading" class="task-number">
+            showing <span *ngIf="page === 1">{{ page }}</span>
+            <span *ngIf="page > 1"> {{ (page - 1) * limit }}</span> -
+            <span *ngIf="tasks.length === limit"> {{ page * limit }}</span>
+            <span *ngIf="limit > tasks.length">
+              {{ (page - 1) * limit + tasks.length }}</span
+            >
+            of {{ total }}
+          </div>
+          <div *ngIf="loading" class="task-number">
+            loading...
+          </div>
+        </div>
+        <div class="col-md-4">
+          <button
+            class="btn btn-primary"
+            (click)="getTask('next')"
+            [disabled]="pages===page"
+          >
+            >>
+          </button>
+        </div>
+      </div>
+      <div class="col-md-12" *ngIf="tasks && tasks.length === 0 && !loading">
+        No task found
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 todo-list" *ngFor="let task of tasks">
+        <div class="col-md-11">
+          <h2>{{ task.title }}</h2>
+          <p>{{ task.description }}</p>
+        </div>
+        <div class="col-md-1">
+          <i class="fa fa-pencil" (click)="editTask(task)"></i>
+          <i class="fa fa-trash" (click)="deleteTask(task.id)"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
